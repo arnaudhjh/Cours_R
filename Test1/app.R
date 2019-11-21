@@ -13,7 +13,7 @@ library(shiny)
 ui <- fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Cars Data: because I love cars..."),
 
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
@@ -29,12 +29,15 @@ ui <- fluidPage(
         mainPanel(
            plotOutput("distPlot")
         )
-    )
+    ),
+    actionButton(inputId = "goButton", label = "test")
 )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
 
+    cars <- data(mtcars)
+    
     output$distPlot <- renderPlot({
         # generate bins based on input$bins from ui.R
         x    <- faithful[, 2]
@@ -43,6 +46,7 @@ server <- function(input, output) {
         # draw the histogram with the specified number of bins
         hist(x, breaks = bins, col = 'darkgray', border = 'white')
     })
+    
 }
 
 # Run the application 
