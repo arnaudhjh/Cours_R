@@ -1,0 +1,43 @@
+Seatbelts' impact on GB driving accidents
+========================================================
+author: CREMEL Antoine / LEMOINE Arnaud / LOEUR Richard
+date: 27/11/2019
+autosize: true
+
+Data set presentation 
+========================================================
+
+
+
+- 
+UKDriverDeaths is a time series giving the monthly totals of car drivers in Great Britain killed or seriously injured Jan 1969 to Dec 1984. Compulsory wearing of seat belts was introduced on 31 Jan 1983
+- 
+Seatbelts is more information on the problem
+
+
+Slide With Code
+========================================================
+
+```{r}
+belts <- as.data.frame(Seatbelts)
+belts
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+belts <- as.data.frame(Seatbelts)
+
+plot(1:192, belts$drivers,main = "Victims throughout the period")
+
+plot(1:192, belts$front, main = "Victims seated in the front seat throughout the period")
+
+plot(1:192, belts$rear, main = "Victims seated in the back seat throughout the period")
+
+plot(1:192, belts$VanKilled, main = "Victims in vans throughout the period")
+plot(belts$PetrolPrice, belts$drivers, main = "Victims in relation to the petrol price throughout the period")
+
+plot(belts$kms, belts$drivers, main = "Victims according to the distance  throughout the period")
+```
+
